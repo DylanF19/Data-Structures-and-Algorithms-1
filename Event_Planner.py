@@ -31,21 +31,28 @@ def best_combo_for_highest_fun_score_brute_force(event_list, max_time, max_budge
             enjoyment_sum += j[3]
         if enjoyment_sum > highest_enjoyment:
             best_combo = [i]
+            highest_enjoyment = enjoyment_sum
         if enjoyment_sum == highest_enjoyment:
             best_combo += [i]
         else:
             continue
 
-    return best_combo
+    return best_combo, highest_enjoyment
 
 #Name, Time, Cost, Fun_Value
 Event_List = {
-    ("Event_1", 2, 20, 50),
-    ("Event_2", 3, 80, 120),
-    ("Event_3", 4, 100, 150),
-    ("Event_4", 2, 60, 100),
-    ("Event_5", 5, 30, 140),
-    ("Event_6", 1, 10, 80)
+    ("Welcome-BBQ", 3, 50, 80),
+    ("Karaoke-Night", 2, 40, 70),
+    ("Film-Screening", 3, 30, 90),
+    ("Sports-Tournament", 4, 60, 110),
+    ("Art-Workshop", 2, 70, 95),
+    ("Pub-Quiz", 2, 25, 60),
+    ("Bowling", 3, 80, 100),
+    ("Laser-Tag", 2, 90, 130),
+    ("Cooking-Class", 3, 75, 105),
+    ("Beach-Trip", 6, 120, 180),
+    ("Escape-Room", 2, 85, 115),
+    ("Open-Mic", 2, 20, 50)
 }
 
-print(best_combo_for_highest_fun_score_brute_force(Event_List, 10, 200))
+print(best_combo_for_highest_fun_score_brute_force(Event_List, 15, 300))
