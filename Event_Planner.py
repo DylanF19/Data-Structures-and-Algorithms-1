@@ -1,0 +1,51 @@
+"""Event_Planner.py"""
+import itertools
+
+#Brute Force
+def best_combo_for_highest_fun_score_brute_force(event_list, max_time, max_budget):
+    """
+    Docstring for best_combo_for_highest_fun_score
+    
+    :param Event_List: A brute force approach to finding the best combo of events
+    """
+
+    event_combo_list = []
+    highest_enjoyment = 0
+
+    for l in range(1, len(event_list) + 1):
+        for subset in itertools.combinations(event_list, l):
+            event_combo_list += [subset]
+
+    for i in event_combo_list.copy():
+        time_cost = 0
+        money_cost = 0
+        for j in i:
+            time_cost += j[1]
+            money_cost += j[2]
+        if time_cost > max_time or money_cost > max_budget:
+            event_combo_list.remove(i)
+
+    for i in event_combo_list:
+        enjoyment_sum = 0
+        for j in i:
+            enjoyment_sum += j[3]
+        if enjoyment_sum > highest_enjoyment:
+            best_combo = [i]
+        if enjoyment_sum == highest_enjoyment:
+            best_combo += [i]
+        else:
+            continue
+
+    return best_combo
+
+#Name, Time, Cost, Fun_Value
+Event_List = {
+    ("Event_1", 2, 20, 50),
+    ("Event_2", 3, 80, 120),
+    ("Event_3", 4, 100, 150),
+    ("Event_4", 2, 60, 100),
+    ("Event_5", 5, 30, 140),
+    ("Event_6", 1, 10, 80)
+}
+
+print(best_combo_for_highest_fun_score_brute_force(Event_List, 10, 200))
