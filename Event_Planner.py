@@ -8,15 +8,19 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
     
     :param Event_List: A brute force approach to finding the best combo of events
     """
+    #Starting variables
     event_combo_list = []
     event_list_ordered_money = sorted(event_list_numerical, key=lambda x: x[2])
     event_list_ordered_time = sorted(event_list_numerical, key=lambda x: x[1])
     money_sum = 0
     time_sum = 0
     max_length = 0
-
+    
     print("Length of event pool: ",len(event_list_numerical))
 
+    # Initial optimiser:
+    # It finds the greates length the solution could be and limits the length of permutations to that
+    # for the sake of efficiency and computing speed
     while money_sum <= max_budget or time_sum <= max_time:
         money_sum += event_list_ordered_money[max_length][2]
         time_sum += event_list_ordered_time[max_length][1]
@@ -25,11 +29,22 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
 
 
     def validset(set):
+        """
+        Docstring for validset
+        
+        :Description: A mini-function that sums the cost of a set and checks it against
+                      the max time and money availible. 
+                      Returns True if a set is valid and False otherwise 
+        """
         set_sum = numpy.sum(set, axis=0, dtype=int)
         if set_sum[1] <= max_time and set_sum[2] <= max_budget:
             return True
         return False
 
+    # This is the main engine that computes every legal permutaion of the events.
+    # It took a lot of pruning and optimising to get this to compute quickly.
+    # There can be hundreds of millions of permutations for a given event set
+    # which was the main hurdle of doing this
     for l in range(1, max_length - 1):
         for subset in itertools.combinations(event_list_numerical, l):
             if validset(subset) is True:
@@ -37,10 +52,12 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
     event_combo_list_length = len(event_combo_list)
     print("List Created. Length: ", event_combo_list_length)
 
+    # these lines create details for each subset suchy as total cost of time
+    # and money as well as the total enjoyment value. The best combo is the
+    # one with the highest total enjoymenbt score
     subset_details = []
     for i in range(1, event_combo_list_length):
         subset_details += [numpy.sum(event_combo_list[i], axis=0, dtype=int)]
-
     best_score = max(subset_details, key=lambda x: x[3])
 
     best_combo_index = []
@@ -50,11 +67,15 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
 
     print("Best Combo Found at: ", best_combo_index)
 
+    # Just in case there is a tie for the best score, the code is built
+    # to handle multiple winners
     best_combo = []
     for i in best_combo_index:
         print(event_combo_list[i])
         best_combo += [event_combo_list[i]]
 
+    # this converts the original solution(which was just numbers) in to a list
+    # containing the names of the events
     best_list_with_names = []
     for i, subset in enumerate(best_combo):
         best_list_with_names_temp = []
@@ -65,7 +86,7 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
     return best_list_with_names
 
 
-
+#Name, Time, Cost, Fun_Value
 Event_List_1 = [
     ["Campus-Tour", 2, 20, 50],
     ["Game-Night", 3, 80, 120],
@@ -90,6 +111,7 @@ Event_List_2 = [
     ["Open-Mic", 2, 20, 50]
 ]
 
+#Name, Time, Cost, Fun_Value
 Event_List_3 = [
     ["Orientation-Walk", 1, 10, 30],  
     ["Ice-Breaker-Games", 2, 20, 50],
@@ -118,6 +140,7 @@ Event_List_3 = [
     ["Crafts-Fair", 2, 40, 75]
 ]
 
+# ID, Time, Money, Enjoyment
 Event_List_1_Number = {
     (1, 2, 20, 50),
     (2, 3, 80, 120),
@@ -142,8 +165,9 @@ Event_List_2_Number = {
     (12, 2, 20, 50)
 }
 
+# ID, Time, Money, Enjoyment
 Event_List_3_Number = {
-    (1, 1, 10, 30),    
+    (1, 1, 10, 30),
     (2, 2, 20, 50),
     (3, 5, 60, 140),
     (4, 4, 80, 120),
@@ -170,8 +194,8 @@ Event_List_3_Number = {
     (25, 2, 40, 75)
 }
 
-#print("Events 1 \n",best_combo_for_highest_fun_score_brute_force(Event_List_1_Number, 10, 200),"\n\n")
+#print("Events 1 \n",best_combo_for_highest_fun_score_brute_force(Event_List_1, Event_List_1_Number, 10, 200),"\n\n")
 
-print("Events 2 \n",best_combo_for_highest_fun_score_brute_force(Event_List_2, Event_List_2_Number, 15, 300),"\n\n")
+#print("Events 2 \n",best_combo_for_highest_fun_score_brute_force(Event_List_2, Event_List_2_Number, 15, 300),"\n\n")
 
-#print("Events 3 \n",best_combo_for_highest_fun_score_brute_force(Event_List_3_Number, 20, 500),"\n\n")
+#print("Events 3 \n",best_combo_for_highest_fun_score_brute_force(Event_List_3, Event_List_3_Number, 20, 500),"\n\n")
