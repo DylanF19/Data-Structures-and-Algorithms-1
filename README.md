@@ -3,7 +3,7 @@
 This is a brute force approach to finding the best solution(s). I have had to optimise some parts so it can acctually conclude executrion in a reasonable amount of time. The 3rd scenario still took 6 minutes and 45 seconds to compute.
 
 ## Results
-scenario 1:  
+### scenario 1:  
 Max Time: 10 Hours  
 Max Budget: 200 Pounds  
 Number of Events: 5  
@@ -16,7 +16,7 @@ Total Time Cost: 6 Hours
 Total Money Cost: 120 Pounds  
 Total Enjoyment Score: 200 Enjoyment  
  
-scenario 2:
+### scenario 2:
 Max Time: 15 Hours  
 Max Budget: 300 Pounds  
 Number of Events: 12  
@@ -29,7 +29,7 @@ Total Time Cost: 14 Hours
 Total Money Cost: 285 Pounds  
 Total Enjoyment Score: 455 Enjoyment  
 
-scenario 3:
+### scenario 3:
 Max Time: 20 Hours  
 Max Budget: 500 Pounds  
 Length of event pool:  25  
