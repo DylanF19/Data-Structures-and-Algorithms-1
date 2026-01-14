@@ -52,18 +52,25 @@ def best_combo_for_highest_fun_score_brute_force(event_list, event_list_numerica
     event_combo_list_length = len(event_combo_list)
     print("List Created. Length: ", event_combo_list_length)
 
+    for i, subset in enumerate(event_combo_list):
+        print(subset)
+    print("--------------------------------------")    
     # these lines create details for each subset suchy as total cost of time
     # and money as well as the total enjoyment value. The best combo is the
     # one with the highest total enjoymenbt score
     subset_details = []
     for i in range(1, event_combo_list_length):
         subset_details += [numpy.sum(event_combo_list[i], axis=0, dtype=int)]
+
+    for i, detail in enumerate(subset_details):
+        print(detail)
+    print("--------------------------------------")  
     best_score = max(subset_details, key=lambda x: x[3])
 
     best_combo_index = []
     for i, subset in enumerate(subset_details):
         if list(subset) == list(best_score):
-            best_combo_index += [i]
+            best_combo_index += [i+1]
 
     print("Best Combo Found at: ", best_combo_index)
 
@@ -194,7 +201,7 @@ Event_List_3_Number = {
     (25, 2, 40, 75)
 }
 
-#print("Events 1 \n",best_combo_for_highest_fun_score_brute_force(Event_List_1, Event_List_1_Number, 10, 200),"\n\n")
+print("Events 1 \n",best_combo_for_highest_fun_score_brute_force(Event_List_1, Event_List_1_Number, 10, 200),"\n\n")
 
 #print("Events 2 \n",best_combo_for_highest_fun_score_brute_force(Event_List_2, Event_List_2_Number, 15, 300),"\n\n")
 
