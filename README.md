@@ -1,6 +1,6 @@
 # Data-Structures-and-Algorithms-1
 
-This is a brute force approach to finding the best solution(s). I have had to optimise some parts so it can acctually conclude executrion in a reasonable amount of time. The 3rd scenario still took 6 minutes and 45 seconds to compute.
+This is a brute force approach to finding the best solution(s). I have had to optimise some parts so it can actually conclude execution in a reasonable amount of time. The 3rd scenario still took 6 minutes and 45 seconds to compute.
 
 ## Results
 ### scenario 1:  
