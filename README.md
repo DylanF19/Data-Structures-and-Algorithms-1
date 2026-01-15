@@ -1,9 +1,10 @@
 # Data-Structures-and-Algorithms-1
 
-This is a brute force approach to finding the best solution(s). I have had to optimise some parts so it can actually conclude execution in a reasonable amount of time. The 3rd scenario still took 6 minutes and 45 seconds to compute.
+## Algorithm 1: Brute Force Approach
+This is a brute force approach to finding the best solution(s). I have had to optimise some parts so it can actually conclude execution in a reasonable amount of time. The 3rd scenario still took 6 minutes and 45 seconds to compute. This is mostly because this approach has an complexity of O(2^n) which gives it poor scalability. Clearly, a smarter approach is needed for large groups of events.
 
-## Results
-### scenario 1:  
+### Results
+#### scenario 1:  
 Max Time: 10 Hours  
 Max Budget: 200 Pounds  
 Number of Events: 5  
@@ -16,7 +17,7 @@ Total Time Cost: 10 Hours
 Total Money Cost: 170 Pounds  
 Total Enjoyment Score: 360 Enjoyment  
  
-### scenario 2:
+#### scenario 2:
 Max Time: 15 Hours  
 Max Budget: 300 Pounds  
 Number of Events: 12  
@@ -29,7 +30,7 @@ Total Time Cost: 15 Hours
 Total Money Cost: 295 Pounds  
 Total Enjoyment Score: 535 Enjoyment  
 
-### scenario 3:
+#### scenario 3:
 Max Time: 20 Hours  
 Max Budget: 500 Pounds  
 Length of event pool:  25  
@@ -42,7 +43,12 @@ Total Time Cost: 20 Hours
 Total Money Cost: 500 Pounds  
 Total Enjoyment Score: 840 Enjoyment  
 
- ## Notes
+ ### Notes: Brute Force Approach
  The best solutions tend to use the most events in total with a bias towards events that use few time and money resources.
 
+## Algorithm 2: ---Insert Name of Approach Here---
+
+###Data
  ![./Analysis_Resources/DSA Tree Diagram](https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Analysis_Resources/DSA%20Tree%20Diagram.png)
+
+ ##### Dylan Foster - Author; Programmer
