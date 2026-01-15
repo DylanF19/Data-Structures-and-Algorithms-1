@@ -49,6 +49,7 @@ Total Enjoyment Score: 840 Enjoyment
 ## Algorithm 2: ---Insert Name of Approach Here---
 
 ###Data
+
  ![./Analysis_Resources/DSA Tree Diagram](https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Analysis_Resources/DSA%20Tree%20Diagram.png)
 
  ##### Dylan Foster - Author; Programmer
