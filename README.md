@@ -45,4 +45,4 @@ Total Enjoyment Score: 840 Enjoyment
  ## Notes
  The best solutions tend to use the most events in total with a bias towards events that use few time and money resources.
 
- ![image](./Analysis_Resources/DSA Tree Diagram)
+ ![./Analysis_Resources/DSA Tree Diagram](https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Analysis_Resources/DSA%20Tree%20Diagram.png)
