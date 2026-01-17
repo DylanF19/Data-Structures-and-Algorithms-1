@@ -1,5 +1,5 @@
 # Testing suite for both algorithms
-## Brute Force
+## Algorithm 1: Brute Force
 ### Test Results
 #### scenario 1:  
 ##### Details
