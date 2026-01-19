@@ -11,7 +11,7 @@ This is a brute force approach to finding the best solution(s). I have had to op
 ### The Tree Graph
 
 The diagram below was an invaluable tool in creating the methodology and putting the methods into code. The diagram outlines Valid combinations [Green], combinations at one or both resource limits [Yellow], invalid combinations [Red] resulting from going over one or both resource limits and simulated combinations [Grey] which give an idea of how the code optimizes to only search for valid combinations. A lot of time was dedicated to observing the graph, trying to find patterns in the data and finding ways of covering all points with a simple, recursive algorithm.
- ![./Analysis_Resources/DSA Tree Diagram](https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Analysis_Resources/DSA%20Tree%20Diagram.png)
+ ![./Analysis_Resources/DSA Tree Diagram]([https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Analysis_Resources/DSA%20Tree%20Diagram.png](https://github.com/DylanF19/Data-Structures-and-Algorithms-1/blob/main/Documents/Report_Resources/DSA%20Tree%20Diagram.png))
 
 ### The Method of the Algorithm
 
