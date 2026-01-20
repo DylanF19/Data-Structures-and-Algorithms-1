@@ -76,7 +76,8 @@ def event_planner_dynamic_search(file_name=None, input_details=None, quiet=0):
     # Finally, the results of the solution finder are printed.
     if quiet == False:
         print(" =========Dynamic========= \n")
-        print(" ---------Solution-------- \n")
+        print(f"Input: {file_name}")
+        print("\n ---------Solution-------- \n")
         for i in best_combo:
             print(f" - {i}")
         print("\n ----------Stats---------- \n")
