@@ -1,14 +1,14 @@
 # Data-Structures-and-Algorithms-1
 
 To run algorithm 1:
-paste this command into the command line, replacing <input> with the desired file. Note: file extentions are mandatory.
+paste this command into the command line, replacing `input` with the desired file. Note: file extentions are mandatory.
 ```
-python -c "from Code.Event_Planner_Bruteforce import event_planner_brute_force; event_planner_brute_force('<input>')"
+python -c "from Code.Event_Planner_Bruteforce import event_planner_brute_force; event_planner_brute_force('input')"
 ```
 To run algorithm 2:
-paste this command into the command line, replacing <input> with the desired file. Note: file extentions are mandatory.
+paste this command into the command line, replacing `input` with the desired file. Note: file extentions are mandatory.
 ```
-python -c "from Code.Event_Planner_Dynamic import event_planner_dynamic_search; event_planner_dynamic_search('<input>')"
+python -c "from Code.Event_Planner_Dynamic import event_planner_dynamic_search; event_planner_dynamic_search('input')"
 ```
 
 ## Algorithm 1: Brute Force Approach
