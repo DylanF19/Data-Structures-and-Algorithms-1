@@ -1,8 +1,9 @@
+"""Dynamic Event Planner"""
 #=====Imports=====
 import time
 from Utilities import function_port, array_to_readable_output
 #======Code=======
-def event_planner_dynamic_search(file_name=None, input_details=None, quiet=0):
+def event_planner_dynamic_search(file_name=None, input_details=None, quiet=False):
     """
     This is the main engine of the dynamic approach. It takes the lists of events
     and parameters and prints the solution. Note: does not return a result, printing
@@ -39,7 +40,7 @@ def event_planner_dynamic_search(file_name=None, input_details=None, quiet=0):
                 # if the considered event can fit in the cell's constraints,
                 # set the cell to the cell above the current cell or the sum
                 # of the considered event and the cell above that fits the event,
-                # which ever is grerater.
+                # which ever is greater.
                     data_field_3d[i][t][m] = max(
                         data_field_3d[i-1][t][m],
                         event_list[i-1][3] + data_field_3d[i-1][t-event_list[i-1][1]][m-event_list[i-1][2]]
