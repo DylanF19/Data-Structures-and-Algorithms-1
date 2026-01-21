@@ -1,5 +1,16 @@
 # Data-Structures-and-Algorithms-1
 
+To run algorithm 1:
+paste this command into the command line, replacing <input> with the desired file. Note: file extentions are mandatory.
+```
+python -c "from Code.Event_Planner_Bruteforce import event_planner_brute_force; event_planner_brute_force('<input>')"
+```
+To run algorithm 2:
+paste this command into the command line, replacing <input> with the desired file. Note: file extentions are mandatory.
+```
+python -c "from Code.Event_Planner_Dynamic import event_planner_dynamic_search; event_planner_dynamic_search('<input>')"
+```
+
 ## Algorithm 1: Brute Force Approach
 This is a brute force approach to finding the best solution(s). I have had to optimize some parts so it can actually conclude execution in a reasonable amount of time. It is an intuative way of finding the solution. `input_large.txt` with only 25 events still took 6 minutes and 45 seconds to compute. This is mostly because this approach has an complexity of O(2^n) which gives it poor scalability. Clearly, a smarter approach is needed for large groups of events.
 
