@@ -3,7 +3,10 @@
 import itertools
 import numpy
 import time
-from Utilities import function_port, array_to_readable_output
+try:
+    from Utilities import function_port, array_to_readable_output
+except ImportError:
+    from Code.Utilities import function_port, array_to_readable_output
 #======Code=======
 def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
     """
