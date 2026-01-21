@@ -25,7 +25,7 @@ With that value, being the greatest enjoyment that can be made from the constrai
 
 ## Utilities
 
-In programming, it's good practice not to repeat yourself. In the code there are functions that are used in both algorithms, such as reading input files or interpreting the input. They're stored in their own file and are imported in either algorithm. I'm not going to go too much into them beghause their names are pretty self explanitory and have plenty of comments. Just look at the code if you're so inclined.
+In programming, it's good practice not to repeat yourself. In the code there are functions that are used in both algorithms, such as reading input files or interpreting the input. They're stored in their own file and are imported in either algorithm. I'm not going to go too much into them because their names are pretty self explanitory and have plenty of comments. Just look at the code if you're so inclined.
 
 
 
