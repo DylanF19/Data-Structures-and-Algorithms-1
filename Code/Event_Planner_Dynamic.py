@@ -62,7 +62,7 @@ def event_planner_dynamic_search(file_name=None, input_details=None, quiet=False
     i = n
     j = max_time
     k = max_budget
-    solution = []
+    solution = [[0,0,0,0]]
     while i > 0 and j > 0 and k > 0:
         if data_field_3d[i][j][k] != data_field_3d[i-1][j][k]:
             solution += [event_list[i-1]]
@@ -90,3 +90,4 @@ def event_planner_dynamic_search(file_name=None, input_details=None, quiet=False
         print(f"Total enjoyment: {details[3]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
+

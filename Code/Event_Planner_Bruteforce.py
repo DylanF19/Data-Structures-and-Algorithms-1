@@ -42,7 +42,7 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
     # There can be hundreds of millions of permutations for a given event set
     # which was the main hurdle of doing this
     event_combo_list = []
-    event_combo_list += [[[0,0,0,0]]]
+    event_combo_list += [([0,0,0,0],)]
     for l in range(1, n+1):
         #print("At length ",l)
         for subset in itertools.combinations(event_list, l):
@@ -54,7 +54,7 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
     # these lines create details for each subset such as total cost of time
     # and money as well as the total enjoyment value. The best combo is the
     # one with the highest total enjoyment score
-    subset_details = [[[0],[0,0,0]]]
+    subset_details = []
     for i in range(0, event_combo_list_length):
         info = numpy.sum(event_combo_list[i], axis=0, dtype=int).tolist()
         info.remove(info[0])
@@ -81,3 +81,4 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
         print(f"Total enjoyment: {details[3]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
+
