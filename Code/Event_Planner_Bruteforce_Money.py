@@ -4,11 +4,11 @@ import itertools
 import numpy
 import time
 try:
-    from Utilities import function_port, array_to_readable_output
+    from Utilities import function_port_money_only, array_to_readable_output_money_only
 except ImportError:
-    from Code.Utilities import function_port, array_to_readable_output
+    from Code.Utilities import function_port_money_only, array_to_readable_output_money_only
 #======Code=======
-def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
+def event_planner_brute_force_money_only(file_name=None, input_details=None, quiet=False):
     """
     This is the main engine of the brute force approach. It takes the lists of events
     and parameters and prints the solution. Note: does not return a result, printing
@@ -25,7 +25,7 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
 
     start = time.perf_counter()
     # Sets the starting conditions.
-    n, max_time, max_budget, event_list, name_list = function_port(file_name, input_details)
+    n, max_budget, event_list, name_list = function_port_money_only(file_name, input_details)
 
     def validset(subset):
         """
@@ -34,7 +34,7 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
         and False otherwise 
         """
         set_sum = numpy.sum(subset, axis=0, dtype=int)
-        if set_sum[1] <= max_time and set_sum[2] <= max_budget:
+        if set_sum[1] <= max_budget:
             return True
         return False
 
@@ -42,7 +42,7 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
     # There can be hundreds of millions of permutations for a given event set
     # which was the main hurdle of doing this
     event_combo_list = []
-    event_combo_list += [([0,0,0,0],)]
+    event_combo_list += [([0,0,0],)]
     for l in range(1, n+1):
         #print("At length ",l)
         for subset in itertools.combinations(event_list, l):
@@ -60,11 +60,11 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
         info.remove(info[0])
     subset_details += [[event_combo_list[i],info]]
 
-    best_combo_numeric = max(subset_details, key=lambda x: x[1][2])
+    best_combo_numeric = max(subset_details, key=lambda x: x[1][1])
 
     # this converts the original solution(which was just numbers) in to a list
     # that can be used to print solution information.
-    best_combo, details = array_to_readable_output(best_combo_numeric[0], name_list)
+    best_combo, details = array_to_readable_output_money_only(best_combo_numeric[0], name_list)
     
     end = time.perf_counter()
     #===============result================
@@ -76,8 +76,9 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
         for i in best_combo:
             print(f" - {i}")
         print("\n ----------Stats---------- \n")
-        print(f"Time used:       {details[1]} Hours")
-        print(f"Money used:      {details[2]} Pounds")
-        print(f"Total enjoyment: {details[3]} Enjoyment")
+        print(f"Money used:      {details[1]} Pounds")
+        print(f"Total enjoyment: {details[2]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
+
+event_planner_brute_force_money_only("input_small.txt")
