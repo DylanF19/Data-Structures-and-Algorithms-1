@@ -85,5 +85,3 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
         print(f"Total enjoyment: {details[2]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
-
-event_planner_dynamic_search_money_only("input_large.txt")
