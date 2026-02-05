@@ -6,7 +6,7 @@ try:
 except ImportError:
     from Code.Utilities import function_port, array_to_readable_output
 #======Code=======
-def event_planner_dynamic_search(file_name=None, input_details=None, quiet=False):
+def event_planner_dynamic_search_both_limits(file_name=None, input_details=None, quiet=False):
     """
     This is the main engine of the dynamic approach. It takes the lists of events
     and parameters and prints the solution. Note: does not return a result, printing
