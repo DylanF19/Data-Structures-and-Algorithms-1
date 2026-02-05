@@ -82,3 +82,4 @@ def event_planner_brute_force(file_name=None, input_details=None, quiet=False):
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
 
+
