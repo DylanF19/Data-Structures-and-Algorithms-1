@@ -3,12 +3,20 @@
 To run algorithm 1:
 paste this command into the command line, replacing `input` with the desired file. Note: file extentions are mandatory.
 ```
-python -c "from Code.Event_Planner_Bruteforce import event_planner_brute_force; event_planner_brute_force('input')"
+python -c "from Code.Event_Planner_Bruteforce_Both_Limits import event_planner_brute_force_both_limits; event_planner_brute_force_both_limits('input')"
+```
+or
+```
+python -c "from Code.Event_Planner_Bruteforce_Money import event_planner_brute_force_money_only; event_planner_brute_force_money_only('input')"
 ```
 To run algorithm 2:
 paste this command into the command line, replacing `input` with the desired file. Note: file extentions are mandatory.
 ```
-python -c "from Code.Event_Planner_Dynamic import event_planner_dynamic_search; event_planner_dynamic_search('input')"
+python -c "from Code.Event_Planner_Dynamic_Both_Limits import event_planner_dynamic_search_both_limits; event_planner_dynamic_search_both_limits('input')"
+```
+or
+```
+python -c "from Code.Event_Planner_Dynamic_Money import event_planner_dynamic_search_money_only; event_planner_dynamic_search_money_only('input')"
 ```
 
 ## Algorithm 1: Brute Force Approach
