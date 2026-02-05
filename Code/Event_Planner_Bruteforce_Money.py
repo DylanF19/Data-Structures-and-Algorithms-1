@@ -81,4 +81,3 @@ def event_planner_brute_force_money_only(file_name=None, input_details=None, qui
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
 
-event_planner_brute_force_money_only("input_small.txt")
