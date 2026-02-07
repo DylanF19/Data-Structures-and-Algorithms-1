@@ -4,7 +4,7 @@ function Event_Planner_Bruteforce
 
         set_sum is sum of array
 
-        if set_sum[time] is less than or equal to max_time and set_sum[money] is less than or equal to max_budget
+        if set_sum[money] is less than or equal to max_budget
 
             return True
 
@@ -44,5 +44,6 @@ function Event_Planner_Bruteforce
     best_combo_numeric is max of: subsets_with_details[enjoyment]
 
     return best_combo, details
+
 
 END function Event_Planner_Bruteforce
