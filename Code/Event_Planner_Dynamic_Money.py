@@ -52,7 +52,7 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
             # else, set the cell to the value of the cell above
                 data_field_2d[i][m] = data_field_2d[i-1][m]
 
-    # From the 3D grid, we can derive what the greatest enjoyment can be by
+    # From the 2D grid, we can derive what the greatest enjoyment can be by
     # reading the value in the bottom corner where the solution limits are.
     # From this enjoyment value, we can work backwards to deduce the sequence
     # could've made it.
@@ -85,3 +85,4 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
         print(f"Total enjoyment: {details[2]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
+
