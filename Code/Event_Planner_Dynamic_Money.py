@@ -62,9 +62,23 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
     solution = [[0,0,0]]
     while i > 0 and k > 0:
         if data_field_2d[i][k] != data_field_2d[i-1][k]:
+            # checks the value of the cell i and compares it to the cell above it.
+            # The cell i shows the enjoyment value considering the first i events
+            # The cell i-1 shows the enjoyment value considering the first i-1 events
+            # If they have the same value, it means that they have the same set of events so,
+            # since event i couldn't have been included in cell i-1, then event i cant be in cell i either.
+            # Otherwise, it counts event i as part of the solution.
             solution += [event_list[i-1]]
             k = k - event_list[i-1][1]
+            # The loop then repeats, reducing the number of considered events from the first i events to the 
+            # first i-1 events, selecting a new cell in the board. 
+            # This new cell will have a new max budget equaling the old max budget minus the 
+            # cost of the removed event ONLY IF the event was a part of the solution.
         i -= 1
+        # The loop fully concludes once it runs out of events of the max budget reaches 0
+        # suggesting that the solution list uses up all of the budget.
+        # At that point, the list is returned, except if no event could fit within the constraints
+        # In which case, the placeholder value of event 0 (signifying no event) is used.
 
     # since the derived solution is in reverse order, this put's it back in forward order
     solution_sorted = sorted(solution, key=lambda x: x[0])
@@ -85,4 +99,5 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
         print(f"Total enjoyment: {details[2]} Enjoyment")
         print(f"Time to Compute: {end-start} Seconds")
         print("\n ======================== \n")
+
 
