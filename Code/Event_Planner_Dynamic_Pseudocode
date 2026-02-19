@@ -13,11 +13,11 @@ function Event_Planner_Dynamic:
             END if
             else if event_list[i-1][1] is less than or equal to m:
 
-                data_field_2d[i][m] = max of:
+                data_field_2d[i][m] = max of(
                     data_field_2d[i-1][m]
                         and
                     event_list[i-1][2] + data_field_2d[i-1][m-event_list[i-1][1]]
-                        
+                        )
             END else if
             else:
 
@@ -50,4 +50,5 @@ function Event_Planner_Dynamic:
 
 
 END function Event_Planner_Dynamic
+
 
