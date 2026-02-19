@@ -43,22 +43,31 @@ def event_planner_brute_force_money_only(file_name=None, input_details=None, qui
     # which was the main hurdle of doing this
     event_combo_list = []
     event_combo_list += [([0,0,0],)]
+    itterations = 0
+    max_length = 2**n
+    check_length = 10**5
     for l in range(1, n+1):
-        #print("At length ",l)
         for subset in itertools.combinations(event_list, l):
+            itterations += 1
+            if itterations % check_length == 0:
+                print("List progress: ",round((itterations/max_length)*100, 4),"%")
             if validset(subset) is True:
                 event_combo_list += [subset]
     event_combo_list_length = len(event_combo_list)
-    #print("List Created. Length: ", event_combo_list_length)
+    print("List Created. Length: ", event_combo_list_length)
 
     # these lines create details for each subset such as total cost of time
     # and money as well as the total enjoyment value. The best combo is the
     # one with the highest total enjoyment score
     subset_details = []
+    itterations = 0
     for i in range(0, event_combo_list_length):
         info = numpy.sum(event_combo_list[i], axis=0, dtype=int).tolist()
         info.remove(info[0])
-    subset_details += [[event_combo_list[i],info]]
+        subset_details += [[event_combo_list[i],info]]
+        itterations += 1
+        if itterations % check_length == 0:
+                print("Solution progress: ",round((itterations/event_combo_list_length)*100, 4),"%")
 
     best_combo_numeric = max(subset_details, key=lambda x: x[1][1])
 

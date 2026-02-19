@@ -37,6 +37,8 @@ function Event_Planner_Bruteforce
 
         info is sum(event_combo_list[i])
 
+        subsets_with_details.add(event_list, info)
+
     END for
 
     subsets_with_details is subsets_with_details + [event_combo_list[i],info]

@@ -62,14 +62,16 @@ def event_planner_dynamic_search_both_limits(file_name=None, input_details=None,
     i = n
     j = max_time
     k = max_budget
-    solution = [[0,0,0,0]]
+    backup_solution = [[0,0,0,0]]
+    solution = []
     while i > 0 and j > 0 and k > 0:
         if data_field_3d[i][j][k] != data_field_3d[i-1][j][k]:
             solution += [event_list[i-1]]
             j = j - event_list[i-1][1]
             k = k - event_list[i-1][2]
         i -= 1
-
+    if len(solution) == 0:
+        solution = backup_solution
     # since the derived solution is in reverse order, this put's it back in forward order
     solution_sorted = sorted(solution, key=lambda x: x[0])
     # this converts the solution from arrays of numbers to a list of events and key information

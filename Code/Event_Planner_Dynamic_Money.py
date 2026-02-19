@@ -59,7 +59,8 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
     # Note, there could be multiple solutions but only one will be given.
     i = n
     k = max_budget
-    solution = [[0,0,0]]
+    backup_solution = [[0,0,0]]
+    solution = []
     while i > 0 and k > 0:
         if data_field_2d[i][k] != data_field_2d[i-1][k]:
             # checks the value of the cell i and compares it to the cell above it.
@@ -80,6 +81,8 @@ def event_planner_dynamic_search_money_only(file_name=None, input_details=None, 
         # At that point, the list is returned, except if no event could fit within the constraints
         # In which case, the placeholder value of event 0 (signifying no event) is used.
 
+    if len(solution) == 0:
+        solution = backup_solution
     # since the derived solution is in reverse order, this put's it back in forward order
     solution_sorted = sorted(solution, key=lambda x: x[0])
     # this converts the solution from arrays of numbers to a list of events and key information
